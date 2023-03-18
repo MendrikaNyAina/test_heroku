@@ -20,15 +20,20 @@
                <!-- Links -->
                <ul class="navbar-nav">
                     <li class="nav-item">
-                         <a class="nav-link" href="/calculer_cout"><h2>Ajouter un article</h2></a>
+                         <a class="nav-link" href="/calculer_cout">Calcule normale</a>
                     </li>
                     <li class="nav-item">
-                         <a class="nav-link" href="/calculer_cout_regional"><h2>Liste des articles</h2></a>
+                         <a class="nav-link" href="/calculer_cout_regional">Calcule region</a>
                     </li>
                </ul>
           </div>
+          
      </nav>
 <div class="container">
+<form action="test" method="post">
+     <textarea id="editor" name="editor"></textarea>
+     <input type="submit" value="submit" />
+<form>
 
 <% 
      if(request.getAttribute("erreur")!=null){
@@ -39,3 +44,22 @@
      </div>                   
 <%     }
 %>
+
+
+     </div><!-- /.container -->
+
+<script src="/ckeditor.js"></script>
+<script type="text/javascript">
+     document.querySelector( '#editor' ).value='<p><strong>volonte </strong><a href="www.monsite.com">de <i>fer</i></a></p>';
+     ClassicEditor
+     .create( document.querySelector( '#editor' ) )    
+     .then( newEditor => {
+          editor = newEditor;
+     } )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
+</body>
+
+</html>
